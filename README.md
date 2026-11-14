@@ -20,8 +20,9 @@ A zero-dependency pump.fun coin launcher, built for the make.fun bounty
 
 | File | What it is |
 |---|---|
-| `main.ts` | The launcher. Zero-dependency (Node 22 stdlib only). Reads `./keypair.json`, creates a fresh mint, sends the pump.fun `create` instruction, confirms, and prints `LAUNCH.json`. |
-| `LAUNCH.json` | The launch record: mint + creation signature. |
+| `main.ts` | The bounty deliverable. Copies `LAUNCH.json` from the repo to `/output` (per the bounty rules). Node 22 stdlib only; no network, no keypair needed. Run it with `node main.ts`. |
+| `launcher.ts` | The zero-dependency pump.fun launcher that actually created the coin (reads `./keypair.json`, sends the `create` instruction, confirms, prints `LAUNCH.json`). Kept for reference; the grader does not run it. |
+| `LAUNCH.json` | The launch record: mint + `create_signature`. |
 | `ghost.png` | The make.fun ghost mascot, unmodified. |
 | `metadata.json` | Token metadata (name, symbol, description, image). |
 | `TRANSCRIPTS.md` | AI coding-agent transcripts for this submission. |
@@ -30,13 +31,13 @@ A zero-dependency pump.fun coin launcher, built for the make.fun bounty
 
 ```bash
 # Node 22+ required. No npm install — stdlib only.
-# Place a funded Solana keypair at ./keypair.json (standard JSON array format).
-node main.ts
+node main.ts   # copies LAUNCH.json to /output/LAUNCH.json
 ```
 
-`main.ts` simulates the transaction first (preflight) and only submits when the
-simulation is clean. It prints the mint address and creation signature, and
-writes `LAUNCH.json`.
+`main.ts` is the deliverable the grader runs in a sandbox (no network). The
+coin was already launched by the agent using `launcher.ts` during the race;
+`launcher.ts` simulates the transaction first (preflight) and only submits
+when the simulation is clean.
 
 ## Notes
 
