@@ -1,0 +1,16 @@
+{
+  "name": "MakeFun Ghost",
+  "symbol": "GHOST",
+  "description": "MakeFun Ghost — the official make.fun ghost mascot coin. made for make.fun $1000 bounty",
+  "image": "https://muse.ai/files/1440645312460395/1680714207055432/sqnr5w0qxa1hxm3pnln34el1/ghost.png",
+  "attributes": [],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://muse.ai/files/1440645312460395/1680714207055432/sqnr5w0qxa1hxm3pnln34el1/ghost.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}
